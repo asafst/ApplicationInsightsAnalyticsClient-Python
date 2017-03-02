@@ -1,11 +1,11 @@
 # Application Insights Analytics Client for Python #
 
-[![PyPI version](https://badge.fury.io/py/applicationinsights.svg)](http://badge.fury.io/py/applicationinsights)
+[![PyPI version](https://badge.fury.io/py/aianalytics-client.svg)](https://badge.fury.io/py/aianalytics-client)
 
 This project enables quering the Application Insights Analytics API while parsing the results for furthur processing in a simple manner. [Application Insights Analytics](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics) is a powerful search feature of Application Insights, which allows to query your Applciation Insights telemetry.
-This module is meant to be used with other data analysis packages, such as [numpy](http://www.numpy.org/) and (matplotlib)[http://matplotlib.org/]. The query result are numpy arrays.
+This module is meant to be used with other data analysis packages, such as [numpy](http://www.numpy.org/) and [matplotlib](http://matplotlib.org/). The query result are numpy arrays.
 
->**Note**: this package is not for sending telemetry to the Applciation Insights serivce. For that you can use the [official python sdk repo](https://github.com/Microsoft/ApplicationInsights-Python).
+>**Note**: this package is not for sending telemetry to the Application Insights serivce. For that you can use the [official python sdk repo](https://github.com/Microsoft/ApplicationInsights-Python).
 
 
 ## Requirements ##
