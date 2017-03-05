@@ -1,0 +1,6 @@
+1. Update version in setup.py
+2. Run:
+python setup.py sdist upload -r pypitest
+python setup.py sdist upload -r pypi
+
+See here: http://peterdowns.com/posts/first-time-with-pypi.html

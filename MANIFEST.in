@@ -1,5 +1,4 @@
 include README.rst
-include README.md
 include LICENSE.txt
 include ApplicationInsightsAnalyticsClient-Python.pyproj
 include ApplicationInsightsAnalyticsClient-Python.sln

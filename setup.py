@@ -11,7 +11,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='aianalytics-client',
     packages = find_packages(exclude=['contrib', 'docs', 'tests*']),
-    version='0.1.4',
+    version='0.1.5',
     description='This project enables quering the Application Insights Analytics API while parsing the results for furthur processing using data analysis tools, such as numpy',
     long_description=long_description,
 

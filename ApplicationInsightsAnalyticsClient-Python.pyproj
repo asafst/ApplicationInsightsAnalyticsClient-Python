@@ -33,10 +33,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="HowtoUpdate.txt" />
     <Content Include="README.rst" />
     <Content Include="LICENSE.txt" />
     <Content Include="MANIFEST.in" />
-    <Content Include="README.md" />
     <Content Include="setup.cfg" />
   </ItemGroup>
   <ItemGroup>

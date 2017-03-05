@@ -2,6 +2,7 @@ import requests
 import dateutil.parser
 import re
 import numpy as np
+import json
 
 SERVICE_ENDPOINT = 'https://api.applicationinsights.io'
 QUERY_ENDPOINT_PATH_TEMPLATE = 'beta/apps/{0}/query'
@@ -14,10 +15,13 @@ TIMESPAN_PATTERN = re.compile(r'((?P<d>[0-9]*).)?(?P<h>[0-9]{2}):(?P<m>[0-9]{2})
 ###################
 class AnalyticsClient(object):
     """description of class"""
-    
-    def __init__(self, app_id, app_key):
-        self._app_id = app_id
-        self._app_key = app_key
+
+    def __init__(self, app_id = None, app_key = None):
+        if not app_id:
+            self._get_app_config_from_file()
+        else:
+            self._app_id = app_id
+            self._app_key = app_key
 
     def query(self, query):
         data = { 'query' :  query }
@@ -39,6 +43,22 @@ class AnalyticsClient(object):
 
         result_parser = AnalyticsResultParser(data_table)
         return result_parser.to_result_dictionary()
+
+    def _get_app_config_from_file(self):
+        import os.path
+        local_config_file = '.analytics_client_config'
+
+        file_path = os.path.join('.', local_config_file)
+        if not os.path.isfile(file_path):
+              file_path = os.path.join(os.path.expanduser('~'), local_config_file)
+              if not os.path.isfile(file_path):
+                  raise Exception('App id and key must be provided')
+        
+        with open(file_path) as data_file:
+            data = json.load(data_file)
+
+        self._app_id = data['appId']
+        self._app_key = data['appKey']
 
 
 ###################
