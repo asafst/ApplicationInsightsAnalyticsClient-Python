@@ -153,16 +153,16 @@ class AnalyticsRowIterator(object):
     def __iter__(self):
         return self
 
-    def __next__(self):
+    def next(self):
         return self.__next__()
 
     def __next__(self):
-        if self.__next__ >= self.last:
+        if self.next >= self.last:
             raise StopIteration
         else:
             single_row_dict = {}
-            for column_name in list(self.result_dict.keys()):
-                single_row_dict[column_name] = self.result_dict[column_name][self.__next__]
+            for column_name in self.result_dict.keys():
+                single_row_dict[column_name] = self.result_dict[column_name][self.next]
             self.next = self.next + 1
             return SingleRow(list(self.result_dict.keys()), single_row_dict)
 
