@@ -23,8 +23,10 @@ class AnalyticsClient(object):
             self._app_id = app_id
             self._app_key = app_key
 
-    def query(self, query):
+    def query(self, query, timespan=None):
         data = { 'query' :  query }
+        if timespan:
+            data['timespan'] = timespan
         headers = { 
             'x-api-key': self._app_key,
             'Content-Type': 'application/json',
