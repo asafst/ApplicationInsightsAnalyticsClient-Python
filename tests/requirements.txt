@@ -1,4 +1,4 @@
-
+# requirements for use when linting/testing.
 # linters
 pylint          # errors
 bandit          # security issues
@@ -7,5 +7,5 @@ bandit          # security issues
 invoke          # general python tasks (make)
 
 # mock
-requests-mock   # api movks
+requests-mock   # api mocks
 
