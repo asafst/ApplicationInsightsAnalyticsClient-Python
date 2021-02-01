@@ -23,7 +23,7 @@ jobs:
         run: pip install -e .
         
       - name: Install test dependencies
-        run: pip install -r test/requirements.txt
+        run: pip install -r tests/requirements.txt
       - name: Run linters
         run: |
           echo "::add-matcher::.github/python_problem_matchers.json"
