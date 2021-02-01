@@ -10,11 +10,8 @@ QUERY_ENDPOINT_PATH_TEMPLATE = 'beta/apps/{0}/query'
 # Regex for TimeSpan
 TIMESPAN_PATTERN = re.compile(r'((?P<d>[0-9]*).)?(?P<h>[0-9]{2}):(?P<m>[0-9]{2}):(?P<s>[0-9]{2})(.(?P<ms>[0-9]*))?')
 
-###################
-## Analytics Client
-###################
 class AnalyticsClient(object):
-    """description of class"""
+    """Analytics Client"""
 
     def __init__(self, app_id = None, app_key = None):
         if not app_id:
