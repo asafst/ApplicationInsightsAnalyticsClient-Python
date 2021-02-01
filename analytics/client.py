@@ -61,7 +61,7 @@ class AnalyticsClient(object):
 
 
 ###################
-## Analytics Resposne Converters
+## Analytics Response Converters
 ###################
 class AnalyticsTypesConverter(object):
     
