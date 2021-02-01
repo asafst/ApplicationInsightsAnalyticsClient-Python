@@ -49,3 +49,6 @@ target/
 *.sln.docstates
 .idea/
 doc/_build/
+
+# Backup files
+*.bak
