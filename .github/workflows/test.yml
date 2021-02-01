@@ -40,5 +40,5 @@ jobs:
         with:
           type: now
           from_branch: devel
-          target_branch: main
+          target_branch: master
           github_token: ${{ github.token }}
