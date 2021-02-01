@@ -1,0 +1,11 @@
+
+# linters
+pylint          # errors
+bandit          # security issues
+
+# test runner
+invoke          # general python tasks (make)
+
+# mock
+requests-mock   # api movks
+

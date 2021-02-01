@@ -1,5 +1,6 @@
 import requests
 import dateutil.parser
+from datetime import timedelta
 import re
 import numpy as np
 import json
@@ -153,9 +154,6 @@ class AnalyticsRowIterator(object):
 
     def __iter__(self):
         return self
-
-    def __next__(self):
-        return self.__next__()
 
     def __next__(self):
         if self.__next__ >= self.last:

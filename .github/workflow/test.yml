@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+      - devel
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v2.1.4
+        with:
+          # Version range or exact version of a Python version to use, using Semver's version range syntax.
+          # Using 3.8 due to https://github.com/PyCQA/pylint/issues/3882
+          python-version:  3.8
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Install app
+        run: pip install -e .
+        
+      - name: Install test dependencies
+        run: pip install -r requirements.txt
+      - name: Run linters
+        run: |
+          echo "::add-matcher::.github/python_problem_matchers.json"
+          invoke lint
