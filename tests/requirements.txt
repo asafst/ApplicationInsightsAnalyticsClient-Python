@@ -1,0 +1,11 @@
+# requirements for use when linting/testing.
+# linters
+pylint          # errors
+bandit          # security issues
+
+# test runner
+invoke          # general python tasks (make)
+
+# mock
+requests-mock   # api mocks
+

@@ -1,5 +1,6 @@
 import requests
 import dateutil.parser
+from datetime import timedelta
 import re
 import numpy as np
 import json
@@ -10,13 +11,12 @@ QUERY_ENDPOINT_PATH_TEMPLATE = 'beta/apps/{0}/query'
 # Regex for TimeSpan
 TIMESPAN_PATTERN = re.compile(r'((?P<d>[0-9]*).)?(?P<h>[0-9]{2}):(?P<m>[0-9]{2}):(?P<s>[0-9]{2})(.(?P<ms>[0-9]*))?')
 
-###################
-## Analytics Client
-###################
 class AnalyticsClient(object):
-    """description of class"""
+    """Analytics Client"""
 
-    def __init__(self, app_id = None, app_key = None):
+    def __init__(self, app_id=None, app_key=None, timeout=None):
+        """:param timeout - Default timeout in seconds for the requests. Default behaviour is to wait indefinitely"""
+        self.timeout = timeout
         if not app_id:
             self._get_app_config_from_file()
         else:
@@ -33,7 +33,7 @@ class AnalyticsClient(object):
             'Accept-Encoding': 'gzip,deflate'
             }
         full_url = '{0}/{1}'.format(SERVICE_ENDPOINT, QUERY_ENDPOINT_PATH_TEMPLATE.format(self._app_id))
-        response = requests.post(full_url, headers=headers, json=data)
+        response = requests.post(full_url, headers=headers, json=data, timeout=self.timeout)
         
         # validate response was good
         response.raise_for_status()
@@ -64,7 +64,7 @@ class AnalyticsClient(object):
 
 
 ###################
-## Analytics Resposne Converters
+## Analytics Response Converters
 ###################
 class AnalyticsTypesConverter(object):
     
@@ -154,9 +154,6 @@ class AnalyticsRowIterator(object):
 
     def __iter__(self):
         return self
-
-    def __next__(self):
-        return self.__next__()
 
     def __next__(self):
         if self.__next__ >= self.last:
